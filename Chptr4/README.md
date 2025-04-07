@@ -1,6 +1,6 @@
 Here I am using splines to model some MET data to see how the temperature varies over time.
 
-Using B-splines, these are simple functions that exist in a limited part of the parameter space but link up to contribute to an overall function. The edges of these functions are called "knots", atleast two functions overlap with some turning "on" and the others turning "off". 
+Using B-splines, these are simple functions that exist in a limited part of the parameter space but link up to contribute to an overall function. The edges of these functions are called "knots", atleast two functions overlap with some turning "on" and the others turning "off" as knots are reached and passed. 
 
 Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read a txt file which I have stored the June temperatures of Oxford in from the years 1853 to 2024 into a data frame in R. Then I used precis(dataframe) to make sure that I had uploaded the data correctly. (precis() is in library(rethinking))
 
