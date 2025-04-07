@@ -1,6 +1,6 @@
 Here I am using splines to model some MET data to see how the temperature varies over time.
 
-Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read a txt file which I have stored the June temperatures of Oxford in from the years 1853 to 1913 into a data frame in R. Then I used precis(dataframe) to make sure that I had uploaded the data correctly. (precis() is in library(rethinking))
+Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read a txt file which I have stored the June temperatures of Oxford in from the years 1853 to 2024 into a data frame in R. Then I used precis(dataframe) to make sure that I had uploaded the data correctly. (precis() is in library(rethinking))
 
 > d2 <- d[complete.cases(d$V2), ]
 > 
