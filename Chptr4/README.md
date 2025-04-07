@@ -7,20 +7,31 @@ Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read
 > num_knots <- 15
 > 
 > knot_list <- quantile(d2$V1, probs=seq(0,1,length.out=num_knots))
-> 
+
+The above code creates a new dataframe d2 and puts complete data into it, then knots are defined with more knots placed where more data is.
+
+> library(splines)
+>
 > B <- bs(d2$V1,knots=knot_list[-c(1,num_knots)],degree=3,intercept=TRUE)
-> 
+
+This code creates a matrix where each row is a year, and each column is a basis function. degree = 3 means that at any point along the x axis there are 3 basis functions being added together. (The -c(1,num_knots) excludes the first and last knot from the list)
+
 > m4.7 <- quap(alist(D~dnorm(mu,sigma),mu <- a + B %*% w, a ~ dnorm(100,10), w ~ dnorm(0,10), sigma ~ dexp(1)), data=list(D = d2$V2 ,B=B), start=list( w=rep( 0 , ncol(B) ) ) )
-> 
+
+This code fits the model to the data.
+
 > mu <- link(m4.7)
 > 
 > mu_PI <- apply(mu,2,PI,0.97)
-> 
-> plot(d2$V1, d2$V2, col=col.alpha(rangi2,0.3), pch=16)
+>
+> mu.mean <- apply(mu,2,mean)
+
+link function takes the quadratic approximation: m4.7, samples from the posterior distribution and calculates mu for each case in the data (in this case each data is each year and corresponding temperature) and then samples from that posterior distribution. (This is a distribution from the sheer number of points sampled from the inital posterior)
+Resulting in a matrix containing a series temperature values for each year due to the sampling of the posterior of different parameters. The next lines summarise the distribution, "Read apply(mu,2,mean) as compute the mean of each column (dimension 2) of the matrix mu.".
+
+> plot(d2$V1, d2$V2, col=col.alpha(rangi2,0.3), pch=16, xlab="Year", ylab="Tmax (degC)", mtext("Max temperature in June at Oxford"))
 > 
 > shade(mu_PI,d2$V1,col=col.alpha("black",0.5))
-> 
-> mu.mean <- apply(mu,2,mean)
 > 
 > lines(d2$V1,mu.mean)
 
