@@ -23,7 +23,8 @@ Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read
 > mu.mean <- apply(mu,2,mean)
 > 
 > lines(d2$V1,mu.mean)
->
-> ![oxjune](https://github.com/user-attachments/assets/3e2c6bb2-abd3-4556-804e-284407d5ca4c)
+
+![ojtvt](https://github.com/user-attachments/assets/549f0101-bddf-4360-863c-b442e9663c8d)
+
 
 This images shows the mean spline and the shaded 97% of the posterior weight values. This image shows that the oxford temperature over these years fluctuates quite a bit with not a clear trend other than the temperature fluctuations becoming weaker and perhaps less frequent.
