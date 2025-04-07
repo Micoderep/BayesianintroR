@@ -20,7 +20,7 @@ This code creates a matrix where each row is a year, and each column is a basis 
 
 > m4.7 <- quap(alist(D~dnorm(mu,sigma),mu <- a + B %*% w, a ~ dnorm(100,10), w ~ dnorm(0,10), sigma ~ dexp(1)), data=list(D = d2$V2 ,B=B), start=list( w=rep( 0 , ncol(B) ) ) )
 
-This code fits the model to the data, using an exponential distribution as a prior for sigma which is beneficial as sigma is always positive and we have an idea that smaller values are more likely than larger ones.
+This code fits the model to the data with the quadratic approximation method, using an exponential distribution as a prior for sigma which is beneficial as sigma is always positive and we have an idea that smaller values are more likely than larger ones.
 
 > mu <- link(m4.7)
 > 
