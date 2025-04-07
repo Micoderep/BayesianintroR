@@ -27,4 +27,4 @@ Using the command: read.table("C:/Users/miles/Desktop/oxjune.csv"), I could read
 ![ojtvt](https://github.com/user-attachments/assets/549f0101-bddf-4360-863c-b442e9663c8d)
 
 
-This images shows the mean spline and the shaded 97% of the posterior weight values. The graph shows that the overall Oxford temperature increases.
+This images shows the mean spline and the shaded 97% of the posterior weight values. The graph shows that the overall Oxford temperature increases from about the 1990s onwards setting new records when considering the previous data.
