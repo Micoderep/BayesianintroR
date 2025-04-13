@@ -6,4 +6,4 @@ Directed Acyclic Graph (DAG), unlike a statisical model a DAG will give you an i
 
 ![Untitled (1)](https://github.com/user-attachments/assets/7abd3a52-c24f-4959-ae92-7cbbc3eaf36b)
 
-The left image implies that all the variables depend on A and are all linked in someway. In the right it suggests that D is not dependent on M conditional on A. You can do an experiment to distinguish between these two DAG's by checking if D ⫫ M|A is true or not. Seeing correlations/associations is not enough because variables dependent on one can effect each other due to their dependence on said variable.
+The left image implies that all the variables depend on A and are all linked in someway. In the right it suggests that D is not dependent on M conditional on A. You can do an experiment to distinguish between these two DAG's by checking if D ⫫ M|A is true or not. Seeing correlations/associations is not enough because variables dependent on one can effect each other due to their dependence on said variable. "Knowing a cause in statistics means being able to correctly predict the consequences of an intervention."
