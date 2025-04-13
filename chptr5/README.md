@@ -4,5 +4,5 @@ Many variables:
 
 Directed Acyclic Graph (DAG), unlike a statisical model a DAG will give you an idea of what happens when you change a variable.
 
-![dag1](https://github.com/user-attachments/assets/7fa8888e-5bd8-4e67-9cdb-6f931c68c4f8)![dag2](https://github.com/user-attachments/assets/a3256b7f-9b4c-4229-8a6a-c24bf24aefb2)
+![Untitled (1)](https://github.com/user-attachments/assets/7abd3a52-c24f-4959-ae92-7cbbc3eaf36b)
 
