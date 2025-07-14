@@ -21,4 +21,12 @@ LOG-POINTWISE-PREDICTIVE-DENSITY (lppd). - Calculates the log probability score 
 
 lppd(y,θ) = Σlog (1/S)Σp(y<sub>i</sub>|θ<sub>s</sub>)
 
+You want to test the model on data that it is not trained on in order to see how it generalizes. This removes the false models with large numbers of predictive variables as they tend to always fit better to the training data (overfitting). In general the lppd score from the testing data should be worse than that calculated for the training as the model is better fit to the training data. The model with the best lppd for the testing data is the one that has the best predictive capabilities. You should always be careful with the data as any sample might not be representative and there might not be enough data for the best model to fit properly to.
+
+Regularization is defined as using skeptical priors. This reduces the learning rate of the model reducing overfitting making models with more parameters perform better.
+
+Predicting predictive accuracy:
+Strategies for predicting out of sample accuracy of a model, Cross-validation, information criteria.
+
+For cross-validation you divide the sample (data) into folds, the model is trained on all other folds except one which is then predicted, then average over "the score for each fold to get an estimate of out of sample accuracy". Leave out one CV is used frequently (where one data point is put into each fold). Computing CV can be quite computationally taxing so an approximation called Pareto-Smoothed Importance Sampling Cross-Validation is used. The PSIS uses the idea that observations that go against expectation more are more important than those that are already consistant with the models predictions.
 
