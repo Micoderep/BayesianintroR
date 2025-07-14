@@ -8,12 +8,17 @@ This equation is described as the average log probability of an event.
 
 The divergence (Kullback-Leibler/KL divergence):
 
-H(X) = -Σ p(x)<sub>1</sub>(log₂p<sub>1</sub>(x)-log₂p<sub>2</sub>(x))
+H(X) = -Σ p(x)<sub>1</sub>(log p<sub>1</sub>(x)-log p<sub>2</sub>(x))
 
 This finds the additional uncertainty induced by using the probabilities of one distribution (p(x)<sub>2</sub>) to describe another (i.e. the true data producing mechanism (model)) (p(x)<sub>1</sub>).
 
 Since we do not know the true data generating process the KL divergence is useless, now here comes deviance which is the difference between two KL divergences of different models. This eliminates the term only in terms of p(x)<sub>1</sub>, leaving the difference between the cross-sections. The deviance tells us how much closer one model is compared to another in predicting the true data generation, however it does not tell us how close this is or whether the model correct.
 
 S(q) = Σ log(q<sub>i</sub>)
+
+This log probability score is "the gold standard way to compare the predictive accuracy of different models".
+LOG-POINTWISE-PREDICTIVE-DENSITY (lppd). - Calculates the log probability score of a posterior distribution.
+
+lppd(y,θ) = Σlog Σ(1/S)p(y<sub>i</sub>|θ<sub>S</sub>)
 
 
