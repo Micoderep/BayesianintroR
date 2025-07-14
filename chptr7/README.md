@@ -19,6 +19,6 @@ S(q) = Σ log(q<sub>i</sub>)
 This log probability score is "the gold standard way to compare the predictive accuracy of different models".
 LOG-POINTWISE-PREDICTIVE-DENSITY (lppd). - Calculates the log probability score of a posterior distribution.
 
-lppd(y,θ) = Σlog Σ(1/S)p(y<sub>i</sub>|θ<sub>S</sub>)
+lppd(y,θ) = Σlog (1/S)Σp(y<sub>i</sub>|θ<sub>s</sub>)
 
 
