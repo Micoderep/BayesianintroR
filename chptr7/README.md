@@ -34,6 +34,8 @@ Information criteria:
 
 Using an equation it is possible to predict the out of sample deviance, this equation is called the Widely Applicable Information Criterion (WAIC).
 
-p_WAIC = Σ[i=1 to n] Var_s( log p(y_i | θ^s) )
-       = Σ[i=1 to n] (1/(S-1)) Σ[s=1 to S] ( log p(y_i | θ^s)
-         - (1/S) Σ[s=1 to S] log p(y_i | θ^s) )^2
+p_WAIC = -2(lppd - Σ[i=1 to n] Var_θ( log p(y_i | θ) ))
+
+There is an equation approximating the standard deviation, pointwise. The second term (penalty term) in the WAIC expression is called "the effective number of parameters" mirroring the Akaike Information Criterion (AIC) that came before it, the book refers to it as "the overfitting penalty" for pedagodgy purposes.
+
+Comparing WAIC, CV and PSIS. "They perform similarly in the context of ordinary linear equations". "CV and PSIS have higher varience estimators of KL divergence, while WAIC has greater bias". It is recommended to compute both PSIS and WAIC and constrast them, if there are large differences in the predictions then either one or both is unreliable, apparantly PSIS can tell you if its estimate is unreliable as well as tell us which one of the "observations are at fault".
