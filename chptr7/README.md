@@ -30,3 +30,10 @@ Strategies for predicting out of sample accuracy of a model, Cross-validation, i
 
 For cross-validation you divide the sample (data) into folds, the model is trained on all other folds except one which is then predicted, then average over "the score for each fold to get an estimate of out of sample accuracy". Leave out one CV is used frequently (where one data point is put into each fold). Computing CV can be quite computationally taxing so an approximation called Pareto-Smoothed Importance Sampling Cross-Validation is used. The PSIS uses the idea that observations that go against expectation more are more important than those that are already consistant with the models predictions.
 
+Information criteria:
+
+Using an equation it is possible to predict the out of sample deviance, this equation is called the Widely Applicable Information Criterion (WAIC).
+
+p_WAIC = Σ[i=1 to n] Var_s( log p(y_i | θ^s) )
+       = Σ[i=1 to n] (1/(S-1)) Σ[s=1 to S] ( log p(y_i | θ^s)
+         - (1/S) Σ[s=1 to S] log p(y_i | θ^s) )^2
