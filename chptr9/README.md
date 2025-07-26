@@ -11,4 +11,4 @@ The above algorithm in the limit will visit all islands with the weight of visit
 
 In statistics, the islands are the parameter values, the population sizes are the posterior probabilities at each parameter set, the weeks are samples taken from the joint posterior of the parameters in the model, you can move to any set of parameter values (with symmetric probabilities attributed to each pair of parameter sets).
 
-Gibbs sampling is the metropolis algorithm but with unsymmetric probabilities for pairs of parameter sets. Makes it easier to handle parameters that have boundaries at 0, and allows for more efficient exploration of the posterior distribution (acquire good description of posterior with few samples atleast when compared to the MA).
+Gibbs sampling is the metropolis algorithm but with an algorithm for more savvy parameter proposals using knowledge of conjugate pairs which have analytical solutions for an individual parameter. Makes it easier to handle parameters that have boundaries at 0, and allows for more efficient exploration of the posterior distribution (acquire good description of posterior with few samples atleast when compared to the MA).
