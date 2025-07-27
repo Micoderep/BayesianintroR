@@ -23,5 +23,5 @@ King Monty has the same problem as king Markov but he lives on a continuous vall
 The solution is to shoot the king in his carriage in a random direction (here up or down) at a random momentum, as the vehicle goes up hill it speed is reduced and eventually turns around to go back down again, after a fixed period of time the vehicle is stopped and the king beholds his subjects before beginning the process again. The autocorrelation for this method is low in comparison to the MA and gibbs sampling as the initial location has little bearing on the next.
 
 HMC is conducted like a particle simulation where a coordinate vector is sent on a random trajectory with a random motion.
-HMC has a high acceptance of proposals, the ones that dont get accepted are those that dont conserve energ
-U turn issue.
+HMC has a high acceptance of proposals, the ones that dont get accepted are those that dont conserve energy.
+There are Leap frog steps and step size, determining the number of steps between proposals, and step size's meaning is intuitively clear. If the posterior is symmetrical then HMC can become inefficient due to bad choices of leap frog steps and step size, if poorly chosen then the path can wrap around and be likely to end up near the starting parameter set leading to a reduction in the exploration of the posterior and more correlation between proposals. (known as the U-turn problem) can be solved by a warm up phase in which the algorithm chooses better values of these parameters from testing.
