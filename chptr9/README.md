@@ -25,3 +25,21 @@ The solution is to shoot the king in his carriage in a random direction (here up
 HMC is conducted like a particle simulation where a coordinate vector is sent on a random trajectory with a random motion.
 HMC has a high acceptance of proposals, the ones that dont get accepted are those that dont conserve energy.
 There are Leap frog steps and step size, determining the number of steps between proposals, and step size's meaning is intuitively clear. If the posterior is symmetrical then HMC can become inefficient due to bad choices of leap frog steps and step size, if poorly chosen then the path can wrap around and be likely to end up near the starting parameter set leading to a reduction in the exploration of the posterior and more correlation between proposals. (known as the U-turn problem) can be solved by a warm up phase in which the algorithm chooses better values of these parameters from testing.
+
+N_eff is a crude estimate of the numbers of independent samples you manage to get.
+Rhat_4 is an indicator of convergence of the Markov chains to the target distribution (should approach 1).
+
+If Markov chain is defined correctly it is guaranteed to converge to the target/posterior distribution.
+HMC Markov chains have a warmup period initially where the step size and step number are tuned to efficiently sample the region.
+
+Trace plot is a graph with the value of a sample of a particular parameter vs the sample number. If these plots have good stationarity, mixing, and convergence then the Markov chain is considered to be healthy. Stationarity is that the mean of the variation in the parameter values over the samples stays relatively constant. Good mixing means that the chain rapidly explores the full region. Convergence refers to multiple chains sticking to the same region of high probability.
+
+Trace Rank or Trank plot assigns an integer to different markov chain sample values (for 1 parameter), with 1 being assigned to the smallest value. Then the samples with the same integer/value are put into a box making a histogram looking the frequency of different values. These histograms from different chains are then plotted onto the same graph with different colours distinguishing them. If the chains are exploring the same space efficiently then the histograms should be similar to one another largely overlapping with neither histogram spending too much time above another.
+
+N_eff: Markov Chains are typically autocorrelated so the samples gleaned from it are not completly independent, which is what we want, this autocorrelation reduces the exploration effiency of the chain in the posterior distribution. The effective number of samples is an estimate of the independent number of samples from the posterior distribution, autocorrelation reduces this value. One consequence of the definition is that N_eff can be larger than the number of samples from a chain provided that sequential samples are anti-correlated in some way.
+
+Wild chains, with very little data and flat priors the chains can easily take on unreasonable values and not explore the posterior region quickly (Divergent transitions: These warnings arise when the numerical simulation that HMC uses is inaccurate).
+
+Non-identifiable parameters problem from chapter 6 where you have highly correlated predictors and so you end up inferring the combination of them in the model. This problem is exaserbated by using weak/flat priors as there are many possible parameter combinations with high probability.
+
+Flat prior sampling takes longer than weak.
